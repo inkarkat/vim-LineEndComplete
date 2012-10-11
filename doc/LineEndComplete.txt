@@ -1,0 +1,101 @@
+*LineEndComplete.txt*   Insert mode completion that completes the rest of the line.
+
+		     LINE END COMPLETE    by Ingo Karkat
+							 *LineEndComplete.vim*
+description			|LineEndComplete-description|
+usage				|LineEndComplete-usage|
+installation			|LineEndComplete-installation|
+configuration			|LineEndComplete-configuration|
+limitations			|LineEndComplete-limitations|
+known problems			|LineEndComplete-known-problems|
+todo				|LineEndComplete-todo|
+history				|LineEndComplete-history|
+
+==============================================================================
+DESCRIPTION					 *LineEndComplete-description*
+
+The |i_CTRL-X_CTRL-L| completion completes entire, identical lines. Sometimes,
+you need completion of an almost-identical line with differences in indent or
+a prefix string.
+This plugin provides a completion mapping that takes the base text before the
+cursor, and offers the missing parts of other lines that also have this base
+text. If you know the exact common text, or to whittle down the number of
+matches, you can also select the completion base yourself before invoking the
+mapping.
+
+SEE ALSO								     *
+
+- Check out the |CompleteHelper.vim| plugin page (vimscript #3914) for a full
+  list of insert mode completions powered by it.
+
+==============================================================================
+USAGE						       *LineEndComplete-usage*
+
+In insert mode, invoke the completion via CTRL-X $.
+Alternatively, you can pre-select the base (via select or visual mode) before
+invoking the completion. This ensures that the best context for completion is
+chosen.
+
+You can then search forward and backward via CTRL-N / CTRL-P, as usual.
+
+								  *i_CTRL-X_$*
+CTRL-X $		Find matches starting with the |MotionComplete-base|
+			text before the cursor, until the end of that line.
+								  *v_CTRL-X_$*
+{Visual}CTRL-X $	Find matches starting with the selected text, until
+			the end of that line.
+
+==============================================================================
+INSTALLATION					*LineEndComplete-installation*
+
+This script is packaged as a |vimball|. If you have the "gunzip" decompressor
+in your PATH, simply edit the *.vmb.gz package in Vim; otherwise, decompress
+the archive first, e.g. using WinZip. Inside Vim, install by sourcing the
+vimball or via the |:UseVimball| command. >
+    vim LineEndComplete*.vmb.gz
+    :so %
+To uninstall, use the |:RmVimball| command.
+
+DEPENDENCIES					*LineEndComplete-dependencies*
+
+- Requires Vim 7.0 or higher.
+- Requires the |MotionComplete.vim| plugin (vimscript #0000).
+
+==============================================================================
+CONFIGURATION				       *LineEndComplete-configuration*
+
+The general |MotionComplete-configuration| applies here, too.
+
+For a permanent configuration, put the following commands into your |vimrc|:
+						       *LineEndComplete-remap*
+If you want to use different mappings, map your keys to the
+<Plug>(LineEndComplete...) mapping targets _before_ sourcing the script
+(e.g. in your |vimrc|): >
+    imap <C-x>$ <Plug>(LineEndComplete)
+    vmap <C-x>$ <Plug>(LineEndComplete)
+<
+==============================================================================
+LIMITATIONS					 *LineEndComplete-limitations*
+
+KNOWN PROBLEMS				      *LineEndComplete-known-problems*
+
+TODO							*LineEndComplete-todo*
+
+IDEAS						       *LineEndComplete-ideas*
+
+==============================================================================
+HISTORY						     *LineEndComplete-history*
+
+GOAL
+First published version.
+
+0.01	02-Oct-2012
+Started development.
+
+==============================================================================
+Copyright: (C) 2012 Ingo Karkat
+The VIM LICENSE applies to this script; see |copyright|.
+
+Maintainer:	Ingo Karkat <ingo@karkat.de>
+==============================================================================
+ vim:tw=78:ts=8:ft=help:norl:
