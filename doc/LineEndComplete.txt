@@ -59,7 +59,7 @@ To uninstall, use the |:RmVimball| command.
 DEPENDENCIES					*LineEndComplete-dependencies*
 
 - Requires Vim 7.0 or higher.
-- Requires the |MotionComplete.vim| plugin (vimscript #0000).
+- Requires the |MotionComplete.vim| plugin (vimscript #4265).
 
 ==============================================================================
 CONFIGURATION				       *LineEndComplete-configuration*
@@ -86,7 +86,7 @@ IDEAS						       *LineEndComplete-ideas*
 ==============================================================================
 HISTORY						     *LineEndComplete-history*
 
-GOAL
+1.00	12-Oct-2012
 First published version.
 
 0.01	02-Oct-2012
